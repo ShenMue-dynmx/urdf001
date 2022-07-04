@@ -24,18 +24,18 @@
 
     <link name="link_Cube.002">
       <inertial>
-        <origin xyz="0 0.19754 0" rpy="0 0 0"/>
+        <origin xyz="-0.13968 0 0.13968" rpy="0 0 0"/>
         <mass value="2.0"/>
-        <inertia ixx="22.73483" ixy="0" ixz="0" iyy="22.62934" iyz="0" izz="1.36114"/>
+        <inertia ixx="1.36114" ixy="0" ixz="0" iyy="22.62934" iyz="0" izz="22.73482"/>
       </inertial>
       <visual name="Cube.002">
-        <origin xyz="0 0.19754 0" rpy="-1.5708 0 0"/>
+        <origin xyz="-0.13968 0 0.13968" rpy="0 -0.7854 0"/>
         <geometry>
           <mesh filename="../meshes/stl/Cube.006.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </visual>
       <collision name="Cube.002">
-        <origin xyz="0 0.4087 0" rpy="-1.5708 0 0"/>
+        <origin xyz="-0.289 0 0.289" rpy="0 -0.7854 0"/>
         <geometry>
           <box size="0.2 0.28711 0.77"/>
         </geometry>
@@ -44,18 +44,18 @@
 
     <link name="link_Cube.003">
       <inertial>
-        <origin xyz="0 0.19754 0" rpy="0 0 0"/>
+        <origin xyz="0 0 0.19754" rpy="0 0 0"/>
         <mass value="2.0"/>
-        <inertia ixx="22.2642" ixy="0" ixz="0" iyy="22.22787" iyz="0" izz="1.31219"/>
+        <inertia ixx="22.2642" ixy="0" ixz="0" iyy="22.22788" iyz="0" izz="1.31219"/>
       </inertial>
       <visual name="Cube.003">
-        <origin xyz="0 0.19754 0" rpy="-1.5708 0 0"/>
+        <origin xyz="0 0 0.19754" rpy="0 0 0"/>
         <geometry>
           <mesh filename="../meshes/stl/Cube.007.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </visual>
       <collision name="Cube.003">
-        <origin xyz="0 0.4087 0" rpy="-1.5708 0 0"/>
+        <origin xyz="0 0 0.4087" rpy="0 0 0"/>
         <geometry>
           <box size="0.2 0.28711 0.76655"/>
         </geometry>
@@ -123,7 +123,7 @@
     </link>
 
     <joint name="link_Cube.001" type="revolute">
-      <origin xyz="0 0 0.26166" rpy="1.5708 -0.7854 0"/>
+      <origin xyz="0 0 0.26166" rpy="1.5708 0 0"/>
       <parent link="link_Cylinder"/>
       <child link="link_Cube.001"/>
       <axis xyz="0 0 1.0"/>
@@ -131,23 +131,23 @@
     </joint>
 
     <joint name="link_Cube.002" type="revolute">
-      <origin xyz="0 0.84553 0" rpy="0 0 -0.7854"/>
+      <origin xyz="0 0.84553 0" rpy="-1.5708 0 -0.7854"/>
       <parent link="link_Cube.001"/>
       <child link="link_Cube.002"/>
-      <axis xyz="0 0 1.0"/>
+      <axis xyz="0 -1.0 0"/>
       <limit lower="-3.14" upper="3.14" effort="15.0" velocity="3.0"/>
     </joint>
 
     <joint name="link_Cube.003" type="revolute">
-      <origin xyz="0 0.844 0" rpy="0 0 -0.71217"/>
+      <origin xyz="-0.5968 0 0.5968" rpy="0 -0.7854 0"/>
       <parent link="link_Cube.002"/>
       <child link="link_Cube.003"/>
-      <axis xyz="0 0 1.0"/>
+      <axis xyz="0 -1.0 0"/>
       <limit lower="-3.14" upper="3.14" effort="15.0" velocity="3.0"/>
     </joint>
 
     <joint name="link_Cube.004" type="revolute">
-      <origin xyz="0 0.91888 0" rpy="-1.5708 0 0"/>
+      <origin xyz="0 0 0.91888" rpy="0 0 0"/>
       <parent link="link_Cube.003"/>
       <child link="link_Cube.004"/>
       <axis xyz="0 0 1.0"/>

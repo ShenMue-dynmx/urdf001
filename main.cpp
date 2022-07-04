@@ -39,8 +39,28 @@ string GetCurrentDir(bool debug=false)
     return mainf;
 }
 
-int main(){
-    LoadUrdf(GetCurrentDir(true)+"/robotarm2/urdf/arm.urdf");
+//TODO cycle from root to end of chain
+// create arrays for origins and axis
+//create methods to get rotation
+void Starter()
+{
+    LoadUrdf(GetCurrentDir(false)+"/robotarm2/urdf/arm.urdf");
     shared_ptr<UrdfModel> model=UrdfModel::fromUrdfStr(UrdfFileFromDisk);
+    map<string, std::shared_ptr<Joint>> jntmap=model->joint_map;
+    auto root= model->root_link->parent_joint;
+    Joint rt=(*root);
+    for(map<string,shared_ptr<Joint>>::iterator iter=jntmap.begin();iter!=jntmap.end();iter++)
+    {
+        //cout<<iter->first << "  :  " << iter->second.get()->parent_to_joint_transform.rotation.x<<endl;
+
+    }
+}
+
+
+int main(){
+    
+    Starter();
+    
+    
     return 0;
 }
