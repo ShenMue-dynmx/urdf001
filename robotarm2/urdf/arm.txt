@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+  <robot name="arm">
+
+    <link name="link_Cube.001">
+      <inertial>
+        <origin xyz="0 0.19754 0" rpy="0 0 0"/>
+        <mass value="2.0"/>
+        <inertia ixx="22.80857" ixy="0" ixz="0" iyy="22.22787" iyz="0" izz="1.85655"/>
+      </inertial>
+      <visual name="Cube.001">
+        <origin xyz="0 0.19754 0" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/stl/Cube.005.stl" scale="1.0 1.0 1.0"/>
+        </geometry>
+      </visual>
+      <collision name="Cube.001">
+        <origin xyz="0 0.4087 0" rpy="-1.5708 0 0"/>
+        <geometry>
+          <box size="0.2 0.38598 0.71133"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Cube.002">
+      <inertial>
+        <origin xyz="0 0.19754 0" rpy="0 0 0"/>
+        <mass value="2.0"/>
+        <inertia ixx="22.73483" ixy="0" ixz="0" iyy="22.62934" iyz="0" izz="1.36114"/>
+      </inertial>
+      <visual name="Cube.002">
+        <origin xyz="0 0.19754 0" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/stl/Cube.006.stl" scale="1.0 1.0 1.0"/>
+        </geometry>
+      </visual>
+      <collision name="Cube.002">
+        <origin xyz="0 0.4087 0" rpy="-1.5708 0 0"/>
+        <geometry>
+          <box size="0.2 0.28711 0.77"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Cube.003">
+      <inertial>
+        <origin xyz="0 0.19754 0" rpy="0 0 0"/>
+        <mass value="2.0"/>
+        <inertia ixx="22.2642" ixy="0" ixz="0" iyy="22.22787" iyz="0" izz="1.31219"/>
+      </inertial>
+      <visual name="Cube.003">
+        <origin xyz="0 0.19754 0" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/stl/Cube.007.stl" scale="1.0 1.0 1.0"/>
+        </geometry>
+      </visual>
+      <collision name="Cube.003">
+        <origin xyz="0 0.4087 0" rpy="-1.5708 0 0"/>
+        <geometry>
+          <box size="0.2 0.28711 0.76655"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Cube.004">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0.00067" ixy="0" ixz="0" iyy="0.00067" iyz="0" izz="0.00067"/>
+      </inertial>
+      <visual name="Cube.004">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.2 0.2 0.2"/>
+        </geometry>
+      </visual>
+      <collision name="Cube.004">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.2 0.2 0.2"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Cylinder">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="2.0"/>
+        <inertia ixx="6.82579" ixy="0" ixz="0" iyy="7.14052" iyz="0" izz="2.58493"/>
+      </inertial>
+      <visual name="Cylinder">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
+        </geometry>
+      </visual>
+      <collision name="Cylinder">
+        <origin xyz="0 0 0.12952" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.34463 0.34463 0.47425"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_base">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="50.0"/>
+        <inertia ixx="140.85948" ixy="0" ixz="0" iyy="140.85948" iyz="0" izz="262.95758"/>
+      </inertial>
+      <visual name="Cube">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/stl/Cube.004.stl" scale="1.0 1.0 1.0"/>
+        </geometry>
+      </visual>
+      <collision name="Cube">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.56174 0.56174 0.15005"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="link_Cube.001" type="revolute">
+      <origin xyz="0 0 0.26166" rpy="1.5708 -0.7854 0"/>
+      <parent link="link_Cylinder"/>
+      <child link="link_Cube.001"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14" upper="3.14" effort="15.0" velocity="3.0"/>
+    </joint>
+
+    <joint name="link_Cube.002" type="revolute">
+      <origin xyz="0 0.84553 0" rpy="0 0 -0.7854"/>
+      <parent link="link_Cube.001"/>
+      <child link="link_Cube.002"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14" upper="3.14" effort="15.0" velocity="3.0"/>
+    </joint>
+
+    <joint name="link_Cube.003" type="revolute">
+      <origin xyz="0 0.844 0" rpy="0 0 -0.71217"/>
+      <parent link="link_Cube.002"/>
+      <child link="link_Cube.003"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14" upper="3.14" effort="15.0" velocity="3.0"/>
+    </joint>
+
+    <joint name="link_Cube.004" type="revolute">
+      <origin xyz="0 0.91888 0" rpy="-1.5708 0 0"/>
+      <parent link="link_Cube.003"/>
+      <child link="link_Cube.004"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14" upper="3.14" effort="0" velocity="0"/>
+    </joint>
+
+    <joint name="link_Cylinder" type="revolute">
+      <origin xyz="0 0 0.17189" rpy="0 0 0"/>
+      <parent link="link_base"/>
+      <child link="link_Cylinder"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.14" upper="3.14" effort="15.0" velocity="3.0"/>
+    </joint>
+
+  </robot>
