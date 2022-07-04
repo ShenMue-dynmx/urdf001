@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
-#include<cstdio>
+#include <cstdio>
+#include <filesystem>
+#include <unistd.h>
+
 #include "urdf/common.h"
 #include "urdf/geometry.h"
 #include "urdf/joint.h"
@@ -8,7 +11,7 @@
 
 using namespace urdf;
 using namespace std;
-
+using std::filesystem::current_path;
 
 string UrdfFileFromDisk="emptyUrdf";
 
@@ -24,10 +27,20 @@ void LoadUrdf(string path,bool debug=false)
     }
 }
 
+string GetCurrentDir(bool debug=false)
+{
+    char tmp[256];
+    getcwd(tmp, 256);
+    // return tmp; //Would return the build folder
+    //lets trim 6 chars from the end (/build) 
+    string _tmp=tmp;
+    string mainf=_tmp.substr(0, _tmp.size()-6);
+    if (debug) cout<<"Executing Dir:" << tmp<<endl<<"Main Dir:"<<mainf<<endl;
+    return mainf;
+}
 
 int main(){
-    std::cout<<"Main laucnhed"<<std::endl;
-    LoadUrdf("/home/shenmu/DevStuff/Cpp/urdf001/robotarm2/urdf/arm.txt");
+    LoadUrdf(GetCurrentDir(true)+"/robotarm2/urdf/arm.urdf");
     shared_ptr<UrdfModel> model=UrdfModel::fromUrdfStr(UrdfFileFromDisk);
     return 0;
 }
